@@ -13,6 +13,7 @@ jobs:
     
     container:
       image: alpine:latest
+      
     steps:
       - name: install java
         run: |
@@ -20,7 +21,14 @@ jobs:
           java --version
           echo "MAVEN_VERSION=1234" >> $GITHUB_ENV
 
-      - name: print mavenversion
+      - name: print maven version
+        run: echo $MAVEN_VERSION  
+        
+  print-maven-version:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: print maven-version
         run: echo $MAVEN_VERSION
 
   print-env:
